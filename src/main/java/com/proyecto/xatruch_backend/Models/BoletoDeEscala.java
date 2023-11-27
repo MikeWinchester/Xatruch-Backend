@@ -15,7 +15,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
-@Table(name = "boletoDeEscala")
+@Table(name = "boletodeescala")
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter

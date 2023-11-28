@@ -27,6 +27,6 @@ public class Clase {
     @Column(name = "descripcion")
     private String descripcion;
 
-    @Column(name = "precio")
-    private double precio;
+    @Column(name = "precioxkilometro")
+    private double precioXKilometro;
 }

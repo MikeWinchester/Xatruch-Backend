@@ -17,6 +17,10 @@ public class UsuarioServiceImpl implements UsuarioService {
 
     @Override
     public Usuario crearUsuario(Usuario nuevoUsuario){
+        Usuario usuarioExistente = this.usuarioRepository.findByCorreo(nuevoUsuario.getCorreo());
+        if(usuarioExistente != null){
+            return null;
+        }
         return this.usuarioRepository.save(nuevoUsuario);
     }
 
@@ -52,5 +56,18 @@ public class UsuarioServiceImpl implements UsuarioService {
     @Override
     public List<Usuario> obtenerTodos() {
         return this.usuarioRepository.findAll();
+    }
+
+    @Override
+    public Usuario login(Usuario usuario){
+       Usuario usuarioAuth =  this.usuarioRepository.findByCorreo(usuario.getCorreo());
+       if(usuarioAuth != null){
+        if(usuario.getContrasenia().equals(usuarioAuth.getContrasenia())){
+            return usuarioAuth;
+        }else{
+            return null;
+        }
+       }
+       return null;
     }
 }

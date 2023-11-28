@@ -15,5 +15,7 @@ public interface UsuarioService {
     public String actualizarUsuario(int idUsuario, Usuario infoUsuario);
 
     public List<Usuario> obtenerTodos();
+
+    public Usuario login(Usuario usuario);
     
 }

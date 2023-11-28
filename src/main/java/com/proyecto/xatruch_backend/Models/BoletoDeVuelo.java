@@ -28,15 +28,15 @@ public class BoletoDeVuelo {
     private int idBoletoDeVuelo;
 
     @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "idUsuario")
+    @JoinColumn(name = "idusuario")
     private Usuario usuario;
 
     @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "idVuelo")
+    @JoinColumn(name = "idvuelo")
     private Vuelo vuelo;
 
     @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "idClase")
+    @JoinColumn(name = "idclase")
     private Clase clase;
 
     @Column(name = "numeroasiento")

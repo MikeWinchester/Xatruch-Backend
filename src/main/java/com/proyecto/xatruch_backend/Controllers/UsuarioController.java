@@ -47,4 +47,8 @@ public class UsuarioController {
         return this.usuarioServiceImpl.actualizarUsuario(idUsuario, usuario);
     }
 
+    @PostMapping("/login")
+    public Usuario login(@RequestBody Usuario usuario){
+        return this.usuarioServiceImpl.login(usuario);
+    }
 }

@@ -1,6 +1,7 @@
 package com.proyecto.xatruch_backend.Models;
 
-import java.time.LocalDateTime;
+import java.sql.Date;
+import java.sql.Time;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
@@ -30,7 +31,10 @@ public class Vuelo {
     private int idVuelo;
 
     @Column(name = "fechasalida")
-    private LocalDateTime fechaSalida;
+    private Date fechaSalida;
+
+    @Column(name = "horasalida")
+    private Time horaSalida;
 
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "idruta")
@@ -42,4 +46,5 @@ public class Vuelo {
 
     @Column(name = "precioturista")
     private double precioTurista;
+
 }

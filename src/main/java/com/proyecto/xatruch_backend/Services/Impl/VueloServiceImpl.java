@@ -1,5 +1,7 @@
 package com.proyecto.xatruch_backend.Services.Impl;
 
+import java.sql.Date;
+import java.sql.Time;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,6 +25,16 @@ public class VueloServiceImpl implements VueloService{
 
     public List<Vuelo> obtenerPorCiudades(String ciudadOrigen, String ciudadDestino){
         return this.vueloRepository.findByRutaOrigenAeropuertoCiudadNombreAndRutaDestinoAeropuertoCiudadNombre(ciudadOrigen, ciudadDestino);
+    }
+
+    @Override
+    public List<Vuelo> obtenerVueloPorFechaSalida(Date fechaSalida) {
+        return this.vueloRepository.findVueloByFechaSalida(fechaSalida);
+    }
+
+    @Override
+    public List<Vuelo> obtenerVueloPorHoraSalida(Time fechaSalida) {
+        return this.vueloRepository.findVueloByHoraSalida(fechaSalida);
     }
     
 

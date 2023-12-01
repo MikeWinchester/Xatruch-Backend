@@ -6,8 +6,6 @@ import com.proyecto.xatruch_backend.Models.Usuario;
 
 public interface UsuarioRepository extends JpaRepository<Usuario, Integer>{
     
-
-
     Usuario findByCorreo(String correo);
 
 }

@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.proyecto.xatruch_backend.Models.BoletoDeVuelo;
-import com.proyecto.xatruch_backend.Models.Usuario;
 import com.proyecto.xatruch_backend.Services.Impl.BoletoDeVueloServiceImpl;
 
 @RestController
@@ -27,8 +26,8 @@ public class BoletoDeVueloController {
         return this.boletoDeVueloServiceImpl.crear(boleto);
     }
 
-    @PostMapping("/obtener/todos/usuario")
-    public List<BoletoDeVuelo> obtenerPorTodosUsuario(@RequestParam(name="usuario")Usuario usuario){
+    @PostMapping("/obtener/todos/{idUsuario}")
+    public List<BoletoDeVuelo> obtenerPorTodosUsuario(@RequestParam(name="usuario")int usuario){
         return this.boletoDeVueloServiceImpl.obtenerTodosPorIdUsuario(usuario);
     }
 
@@ -37,7 +36,7 @@ public class BoletoDeVueloController {
         return this.boletoDeVueloServiceImpl.obtenerTodos();
     }
 
-    @DeleteMapping("/eliminar")
+    @DeleteMapping("/eliminar/{idBoletoDeVuelo}")
     public String eliminarBoleto(@RequestParam(name="idBoleto")int idBoletoDeVuelo){
         return this.boletoDeVueloServiceImpl.eliminarBoletoDeVuelo(idBoletoDeVuelo);
     }

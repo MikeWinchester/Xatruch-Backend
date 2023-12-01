@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.proyecto.xatruch_backend.Models.BoletoDeVuelo;
-import com.proyecto.xatruch_backend.Models.Usuario;
 import com.proyecto.xatruch_backend.Repositories.BoletoDeVueloRepository;
 import com.proyecto.xatruch_backend.Services.BoletoDeVueloService;
 
@@ -17,8 +16,9 @@ public class BoletoDeVueloServiceImpl implements BoletoDeVueloService{
     public BoletoDeVueloRepository boletoDeVueloRepository;
 
     @Override
-    public List<BoletoDeVuelo> obtenerTodosPorIdUsuario(Usuario usuario) {
-        return this.boletoDeVueloRepository.findBoletoDeVueloByUsuario(usuario);
+    public List<BoletoDeVuelo> obtenerTodosPorIdUsuario(int usuario) {
+        return this.boletoDeVueloRepository.findBoletoDeVueloByUsuarioIdUsuario(usuario);
+        
     }
 
     @Override

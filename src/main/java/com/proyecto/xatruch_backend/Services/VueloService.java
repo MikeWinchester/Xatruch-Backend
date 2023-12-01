@@ -5,9 +5,9 @@ import java.util.List;
 import com.proyecto.xatruch_backend.Models.Vuelo;
 
 public interface VueloService {
-
-    public Vuelo crear(Vuelo nuevoVuelo);
     
-    public List<Vuelo> obtenerTodos();
+    public List<Vuelo> obtener();
+
+    public List<Vuelo> obtenerPorCiudades(String ciudadOrigen, String ciudadDestino);
 
 }

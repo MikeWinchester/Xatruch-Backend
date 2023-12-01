@@ -18,10 +18,10 @@ public class EscalaVuelo {
     private int idEscalaVuelo;
 
     @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "idEscala")
+    @JoinColumn(name = "idescala")
     private Escala escala;
 
     @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "idVuelo")
+    @JoinColumn(name = "idvuelo")
     private Vuelo vuelo;
 }

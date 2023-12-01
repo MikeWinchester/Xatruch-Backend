@@ -28,11 +28,11 @@ public class BoletoDeEscala {
     private int idBoletoDeEscala;
 
     @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "idEscala")
+    @JoinColumn(name = "idescala")
     private Escala escala;
 
     @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "idClase")
+    @JoinColumn(name = "idclase")
     private Clase clase;
 
     @Column(name = "numeroasiento")

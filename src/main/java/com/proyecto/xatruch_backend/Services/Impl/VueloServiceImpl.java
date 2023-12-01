@@ -18,15 +18,9 @@ public class VueloServiceImpl implements VueloService{
 
     @Override
     public List<Vuelo> obtenerTodos() {
-        
-    public List<Vuelo> obtener() {
-        return this.vueloRepository.findAll(); 
+        return this.vueloRepository.findAll();
     }
 
-    @Override
-    public Vuelo crear(Vuelo nuevoVuelo) {
-        return this.vueloRepository.save(nuevoVuelo);
-    }
     public List<Vuelo> obtenerPorCiudades(String ciudadOrigen, String ciudadDestino){
         return this.vueloRepository.findByRutaOrigenAeropuertoCiudadNombreAndRutaDestinoAeropuertoCiudadNombre(ciudadOrigen, ciudadDestino);
     }

@@ -10,4 +10,6 @@ public interface AsientoRepository extends JpaRepository<Asiento, Integer>{
     
     public List<Asiento> findByVueloIdVuelo(int idTipoAvion);
 
+    public Asiento findByVueloIdVueloAndNumero(int idVuelo, String numero);
+
 }

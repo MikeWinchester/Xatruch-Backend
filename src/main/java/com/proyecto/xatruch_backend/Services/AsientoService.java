@@ -6,5 +6,7 @@ import com.proyecto.xatruch_backend.Models.Asiento;
 
 public interface AsientoService {
     
-    public List<Asiento> obtenerPorTipoDeAvion(int idVuelo);
+    public List<Asiento> obtenerPorVuelo(int idVuelo);
+
+    public Asiento obtenerPorVueloYNumeroAsiento(int idVuelo, String numero);
 }

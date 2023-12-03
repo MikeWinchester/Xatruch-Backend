@@ -15,7 +15,12 @@ public class AsientoServiceImpl implements AsientoService {
     @Autowired
     private AsientoRepository asientoRepository;
 
-    public List<Asiento> obtenerPorTipoDeAvion(int idVuelo){
+    public List<Asiento> obtenerPorVuelo(int idVuelo){
         return this.asientoRepository.findByVueloIdVuelo(idVuelo);
+    }
+
+    @Override
+    public Asiento obtenerPorVueloYNumeroAsiento(int idVuelo, String numero){
+        return this.asientoRepository.findByVueloIdVueloAndNumero(idVuelo, numero);
     }
 }

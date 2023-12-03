@@ -20,6 +20,12 @@ public class AsientoController {
 
     @GetMapping("/obtener/vuelo")
     public List<Asiento> obtenerPorTipoDeAvion(@RequestParam(name = "idVuelo")int idVuelo){
-        return this.asientoServiceImpl.obtenerPorTipoDeAvion(idVuelo);
+        return this.asientoServiceImpl.obtenerPorVuelo(idVuelo);
+    }
+
+    @GetMapping("obtener/vuelo/numero-asiento")
+    public Asiento obtenerPorVueloYNumeroAsiento(@RequestParam(name = "idVuelo")int idVuelo,
+                                                 @RequestParam(name = "numeroAsiento")String numeroAsiento){
+        return this.asientoServiceImpl.obtenerPorVueloYNumeroAsiento(idVuelo, numeroAsiento);
     }
 }

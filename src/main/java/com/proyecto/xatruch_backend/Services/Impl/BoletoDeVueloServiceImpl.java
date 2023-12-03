@@ -13,7 +13,7 @@ import com.proyecto.xatruch_backend.Services.BoletoDeVueloService;
 public class BoletoDeVueloServiceImpl implements BoletoDeVueloService{
 
     @Autowired
-    public BoletoDeVueloRepository boletoDeVueloRepository;
+    private BoletoDeVueloRepository boletoDeVueloRepository;
 
     @Override
     public List<BoletoDeVuelo> obtenerTodosPorIdUsuario(int usuario) {

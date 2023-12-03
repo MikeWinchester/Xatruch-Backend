@@ -37,6 +37,10 @@ public class VueloServiceImpl implements VueloService{
         return this.vueloRepository.findVueloByHoraSalida(fechaSalida);
     }
     
+    @Override
+    public Vuelo obtenerPorId(int idVuelo){
+        return this.vueloRepository.findById(idVuelo).get();
+    }
 
     
 }

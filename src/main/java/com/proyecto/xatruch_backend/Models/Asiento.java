@@ -15,24 +15,30 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
-@Table(name = "boletodeescala")
+@Table(name = "asiento")
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
 @Setter
-public class BoletoDeEscala {
-
+public class Asiento {
+    
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "idboletodeescala")
-    private int idBoletoDeEscala;
+    @Column(name = "idasiento")
+    private int idAsiento;
+
+    @Column(name = "numero")
+    private String numero;
+
+    @Column(name = "disponible")
+    private boolean disponible;
 
     @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "idescala")
-    private Escala escala;
+    @JoinColumn(name = "idvuelo")
+    private Vuelo vuelo;
 
     @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "idasiento")
-    private Asiento asiento;
+    @JoinColumn(name = "idclase")
+    private Clase clase;
 
 }

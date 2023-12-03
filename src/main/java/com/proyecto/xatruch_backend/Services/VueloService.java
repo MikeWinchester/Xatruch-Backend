@@ -10,6 +10,8 @@ public interface VueloService {
     
     public List<Vuelo> obtenerTodos();
 
+    public Vuelo obtenerPorId(int idVuelo);
+
     public List<Vuelo> obtenerPorCiudades(String ciudadOrigen, String ciudadDestino);
 
     public List<Vuelo> obtenerVueloPorFechaSalida(Date fechaSalida);

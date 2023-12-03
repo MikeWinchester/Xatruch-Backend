@@ -44,4 +44,9 @@ public class VueloController {
         return this.vueloServiceImpl.obtenerVueloPorHoraSalida(horaSalida);
     }
 
+    @GetMapping("/obtener")
+    public Vuelo obtenerPorId(@RequestParam(name = "idVuelo")int idVuelo){
+        return this.vueloServiceImpl.obtenerPorId(idVuelo);
+    }
+
 }

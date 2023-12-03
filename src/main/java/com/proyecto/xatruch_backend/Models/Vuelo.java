@@ -46,7 +46,5 @@ public class Vuelo {
 
     @Column(name = "precioturista")
     private double precioTurista;
-
-
     
 }

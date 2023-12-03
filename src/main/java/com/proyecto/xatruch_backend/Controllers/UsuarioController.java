@@ -32,7 +32,7 @@ public class UsuarioController {
         return this.usuarioServiceImpl.obtenerTodos();
     }
     
-    @GetMapping("/obtener/{idUsuario}")
+    @GetMapping("/obtener")
     public Usuario obtenerPorId(@RequestParam(name="idUsuario")int idUsuario){
         return this.usuarioServiceImpl.obtenerUsuarioPorId(idUsuario);
     }

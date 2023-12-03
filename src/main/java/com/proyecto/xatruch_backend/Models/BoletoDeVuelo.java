@@ -30,15 +30,8 @@ public class BoletoDeVuelo {
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "idusuario")
     private Usuario usuario;
-
+    
     @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "idvuelo")
-    private Vuelo vuelo;
-
-    @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "idclase")
-    private Clase clase;
-
-    @Column(name = "numeroasiento")
-    private String numeroAsiento;
+    @JoinColumn(name = "idasiento")
+    private Asiento asiento;
 }

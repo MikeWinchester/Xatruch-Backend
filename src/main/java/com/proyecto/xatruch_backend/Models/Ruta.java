@@ -25,6 +25,9 @@ public class Ruta {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "idruta")
     private int idRuta;
+    
+    @Column(name = "kilometros")
+    private double kilometros;
 
     @ManyToOne
     @JoinColumn(name = "idorigen")
@@ -33,7 +36,4 @@ public class Ruta {
     @ManyToOne
     @JoinColumn(name = "iddestino")
     private Destino destino;
-
-    @Column(name = "kilometros")
-    private double kilometros;
 }

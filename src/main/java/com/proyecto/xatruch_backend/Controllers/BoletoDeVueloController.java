@@ -15,7 +15,7 @@ import com.proyecto.xatruch_backend.Models.BoletoDeVuelo;
 import com.proyecto.xatruch_backend.Services.Impl.BoletoDeVueloServiceImpl;
 
 @RestController
-@RequestMapping("/boleto/vuelo")
+@RequestMapping("/boletos/vuelo")
 public class BoletoDeVueloController {
     
     @Autowired

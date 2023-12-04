@@ -22,12 +22,13 @@ public class BoletoDeVueloController {
     public BoletoDeVueloServiceImpl boletoDeVueloServiceImpl;
 
     @PostMapping("/crear")
-    public BoletoDeVuelo crear(@RequestBody BoletoDeVuelo boleto){
-        return this.boletoDeVueloServiceImpl.crear(boleto);
+    public BoletoDeVuelo crear(@RequestParam(name = "idUsuario")int idUsuario,
+                               @RequestParam(name = "idAsiento")int idAsiento){
+        return this.boletoDeVueloServiceImpl.crear(idUsuario, idAsiento);
     }
 
-    @PostMapping("/obtener/todos/{idUsuario}")
-    public List<BoletoDeVuelo> obtenerPorTodosUsuario(@RequestParam(name="usuario")int usuario){
+    @PostMapping("/obtener/todos/usuario")
+    public List<BoletoDeVuelo> obtenerPorTodosUsuario(@RequestParam(name="idUsuario")int usuario){
         return this.boletoDeVueloServiceImpl.obtenerTodosPorIdUsuario(usuario);
     }
 

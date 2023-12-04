@@ -34,7 +34,7 @@ public class VueloController {
         return this.vueloServiceImpl.obtenerPorCiudades(origen, destino);
     }
 
-    @PostMapping("/obtener/{fechaSalida}")
+    @GetMapping("/obtener/fecha-salida")
     public List<Vuelo> buscarVueloPorFechaSalida(@RequestParam(name="fechaSalida")Date fechaSalida){
         return this.vueloServiceImpl.obtenerVueloPorFechaSalida(fechaSalida);
     }

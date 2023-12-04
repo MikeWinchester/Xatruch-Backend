@@ -37,12 +37,12 @@ public class UsuarioController {
         return this.usuarioServiceImpl.obtenerUsuarioPorId(idUsuario);
     }
 
-    @DeleteMapping("/eliminar/{idUsuario}")
+    @DeleteMapping("/eliminar")
     public String eliminarPorId(@RequestParam(name="idUsuario")int idUsuario){
         return this.usuarioServiceImpl.eliminarUsuario(idUsuario);
     }
 
-    @PutMapping("/actualizar/{idUsuario}")
+    @PutMapping("/actualizar")
     public String actualizarUsuario(@RequestParam(name="idUsuario")int idUsuario, @RequestBody Usuario usuario){
         return this.usuarioServiceImpl.actualizarUsuario(idUsuario, usuario);
     }

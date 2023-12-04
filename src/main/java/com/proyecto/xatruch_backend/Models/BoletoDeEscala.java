@@ -32,11 +32,7 @@ public class BoletoDeEscala {
     private Escala escala;
 
     @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "idusuario")
+    @JoinColumn(name = "idboletodevuelo")
     private BoletoDeVuelo boletoDeVuelo;
-
-    @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "idasiento")
-    private Asiento asiento;
 
 }

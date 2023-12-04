@@ -1,7 +1,7 @@
 package com.proyecto.xatruch_backend.Services.Impl;
 
 import java.util.List;
-import java.util.Optional;
+
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -9,13 +9,16 @@ import org.springframework.stereotype.Service;
 import com.proyecto.xatruch_backend.Models.Asiento;
 import com.proyecto.xatruch_backend.Models.BoletoDeEscala;
 import com.proyecto.xatruch_backend.Models.BoletoDeVuelo;
-import com.proyecto.xatruch_backend.Models.Escala;
 import com.proyecto.xatruch_backend.Models.EscalaVuelo;
+import com.proyecto.xatruch_backend.Models.Usuario;
 import com.proyecto.xatruch_backend.Repositories.AsientoRepository;
 import com.proyecto.xatruch_backend.Repositories.BoletoDeEscalaRepository;
 import com.proyecto.xatruch_backend.Repositories.BoletoDeVueloRepository;
 import com.proyecto.xatruch_backend.Repositories.EscalaVueloRepository;
+import com.proyecto.xatruch_backend.Repositories.UsuarioRepository;
 import com.proyecto.xatruch_backend.Services.BoletoDeVueloService;
+
+import jakarta.transaction.Transactional;
 
 @Service
 public class BoletoDeVueloServiceImpl implements BoletoDeVueloService{
@@ -30,7 +33,10 @@ public class BoletoDeVueloServiceImpl implements BoletoDeVueloService{
     private BoletoDeEscalaRepository boletoDeEscalaRepository;
 
     @Autowired
-    private EscalaVueloRepository escalaVueloRepository; 
+    private EscalaVueloRepository escalaVueloRepository;
+
+    @Autowired
+    private UsuarioRepository usuarioRepository;
 
     @Override
     public List<BoletoDeVuelo> obtenerTodosPorIdUsuario(int usuario) {
@@ -54,20 +60,30 @@ public class BoletoDeVueloServiceImpl implements BoletoDeVueloService{
     }
 
     @Override
-    public BoletoDeVuelo crear(BoletoDeVuelo boleto) {
+    @Transactional
+    public BoletoDeVuelo crear(int idUsuario, int idAsiento) {
 
-        Asiento asiento = this.asientoRepository.findById(boleto.getAsiento().getIdAsiento()).get();
+        Asiento asiento = this.asientoRepository.findById(idAsiento).get();
+        Usuario usuario = this.usuarioRepository.findById(idUsuario).get();
+
         asiento.setDisponible(false);
-        List<EscalaVuelo> escalas = this.escalaVueloRepository.findEscalaVueloByVueloIdVuelo(boleto.getAsiento().getVuelo().getIdVuelo());
+        BoletoDeVuelo boleto = new BoletoDeVuelo();
+        boleto.setAsiento(asiento);
+        boleto.setUsuario(usuario);
+
+        BoletoDeVuelo boletoSve = this.boletoDeVueloRepository.save(boleto);
+        
+        List<EscalaVuelo> escalas = this.escalaVueloRepository.findEscalaVueloByVueloIdVuelo(asiento.getVuelo().getIdVuelo());
         
         for (EscalaVuelo escala : escalas) {
             BoletoDeEscala boletoDeEscala = new BoletoDeEscala();
             boletoDeEscala.setEscala(escala.getEscala());
-            boletoDeEscala.setBoletoDeVuelo(boleto);
+            boletoDeEscala.setBoletoDeVuelo(boletoSve);
+
             this.boletoDeEscalaRepository.save(boletoDeEscala);
         }
 
-        return this.boletoDeVueloRepository.save(boleto);
+        return boletoSve;
     }
     
 }
